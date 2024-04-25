@@ -1,7 +1,7 @@
 const express = require("express")
 const app = express()
 
-app.set("port", process.env.PORT || 3030) // 포트 설정
+app.set("port", process.env.PORT || 3000) // 포트 설정
 app.set("host", process.env.HOST || "0.0.0.0") // 아이피 설정
 
 // 루트 접속시 아이피 출력
