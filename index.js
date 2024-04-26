@@ -19,5 +19,7 @@ app.listen(app.get("port"), app.get("host"), () =>
 )
 
 // '/admins' 경로로 들어오는 요청에 대해서만 router 동작
-const adminRouter = require("./routes")
-app.use("/api", adminRouter)
+const router = require("./routes")
+app.use("/api", router)
+
+module.exports = app
