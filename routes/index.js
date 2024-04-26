@@ -6,7 +6,7 @@ const router = express.Router()
 router.get("/login", async (req, res) => {
     try {
         const response = await axios.get("https://kauth.kakao.com/oauth/authorize", {
-            data: {
+            params: {
                 client_id: "304c6bc5d7275c6f37ccd6bf08550bb2",
                 redirect_uri: "http://localhost:5173/ourmap.github.io",
                 response_type: "code",
