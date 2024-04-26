@@ -9,17 +9,20 @@ router.post("/getKakao", async (req, res) => {
         console.log("body:: ", req.body)
 
         await axios
-            .post("https://kauth.kakao.com/oauth/token", {
-                headers: {
-                    "Content-type": "application/x-www-form-urlencoded;charset=utf-8",
-                },
-                body: {
+            .post(
+                "https://kauth.kakao.com/oauth/token",
+                {
                     grant_type: "authorization_code",
                     client_id: "304c6bc5d7275c6f37ccd6bf08550bb2",
                     redirect_uri: "http://localhost:5173/ourmap.github.io/auth",
                     code: req.body.code,
                 },
-            })
+                {
+                    headers: {
+                        "Content-type": "application/x-www-form-urlencoded;charset=utf-8",
+                    },
+                }
+            )
             .then(res => {
                 return res.status(200).json(res)
             })
