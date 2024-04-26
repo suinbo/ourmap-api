@@ -1,6 +1,10 @@
 const { default: axios } = require("axios")
 const express = require("express")
 const router = express.Router()
+const bodyParser = require("body-parser")
+
+// JSON 형식의 요청 본문 파싱
+app.use(bodyParser.json())
 
 // 로그인
 router.post("/getKakao", async (req, res) => {
