@@ -6,8 +6,7 @@ const router = express.Router()
 router.get("/login", async (req, res) => {
     try {
         const response = await axios.get("https://kauth.kakao.com/oauth/authorize", {})
-
-        return res.status(200).json(response)
+        return response
     } catch (error) {
         console.log(error.message)
         return res.status(500).json("RESPONSE.SERVER_ERROR")
