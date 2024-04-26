@@ -5,6 +5,9 @@ const router = express.Router()
 // 로그인
 router.post("/getKakao", async (req, res) => {
     try {
+        console.log("headers:: ", req.headers)
+        console.log("body:: ", req.body)
+
         await axios
             .post("https://kauth.kakao.com/oauth/token", {
                 headers: {
@@ -20,9 +23,6 @@ router.post("/getKakao", async (req, res) => {
             .then(res => {
                 return res.status(200).json(res)
             })
-
-        console.log("headers:: ", req.headers)
-        console.log("body:: ", req.body)
     } catch (error) {
         console.log(error.message)
         return res.status(500).json("RESPONSE.SERVER_ERROR")
