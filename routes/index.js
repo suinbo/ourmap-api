@@ -20,6 +20,9 @@ router.post("/getKakao", async (req, res) => {
             .then(res => {
                 return res.status(200).json(res)
             })
+
+        console.log("headers:: ", req.headers)
+        console.log("body:: ", req.body)
     } catch (error) {
         console.log(error.message)
         return res.status(500).json("RESPONSE.SERVER_ERROR")
