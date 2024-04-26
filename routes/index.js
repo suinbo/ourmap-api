@@ -3,18 +3,22 @@ const express = require("express")
 const router = express.Router()
 
 // 로그인
-router.get("/login", async (req, res) => {
+router.get("/getKakao", async (req, res) => {
     try {
         await axios
-            .get("https://kauth.kakao.com/oauth/authorize", {
-                params: {
+            .post("https://kauth.kakao.com/oauth/token", {
+                headers: {
+                    "Content-type": "application/x-www-form-urlencoded;charset=utf-8",
+                },
+                body: {
+                    grant_type: "authorization_code",
                     client_id: "304c6bc5d7275c6f37ccd6bf08550bb2",
-                    redirect_uri: "http://localhost:5173",
-                    response_type: "code",
+                    redirect_uri: "http://localhost:5173/ourmap.github.io/auth",
+                    code: req.query.code,
                 },
             })
             .then(res => {
-                console.log("res:: ", res)
+                return res.status(200).json(res)
             })
     } catch (error) {
         console.log(error.message)
