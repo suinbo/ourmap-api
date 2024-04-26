@@ -1,6 +1,10 @@
 const express = require("express")
 const app = express()
 const cors = require("cors")
+const bodyParser = require("body-parser")
+
+// JSON 형식의 요청 본문 파싱
+app.use(bodyParser.json())
 
 // 모든 프론트엔드 서버 허용
 app.use(cors())
