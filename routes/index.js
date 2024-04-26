@@ -3,7 +3,7 @@ const express = require("express")
 const router = express.Router()
 
 // 로그인
-router.get("/getKakao", async (req, res) => {
+router.post("/getKakao", async (req, res) => {
     try {
         await axios
             .post("https://kauth.kakao.com/oauth/token", {
