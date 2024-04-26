@@ -23,8 +23,8 @@ router.post("/getKakao", async (req, res) => {
                     },
                 }
             )
-            .then(res => {
-                return res.status(200).json(res)
+            .then(response => {
+                return res.status(200).json(response.data)
             })
     } catch (error) {
         console.log(error.message)
