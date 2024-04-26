@@ -13,7 +13,11 @@ app.get("/", function (req, res) {
     res.send("접속된 아이피: " + req.ip)
 })
 
-// 서버 동작중인 표시
+// 서버 동작 출력
 app.listen(app.get("port"), app.get("host"), () =>
     console.log("Server is running on : " + app.get("host") + ":" + app.get("port"))
 )
+
+// '/admins' 경로로 들어오는 요청에 대해서만 router 동작
+const adminRouter = require("./routes")
+app.use("/api", adminRouter)
