@@ -32,4 +32,30 @@ router.post("/getKakao", async (req, res) => {
     }
 })
 
+// 사용자 정보 가져오기
+router.post("/getUser", async (req, res) => {
+    try {
+        await axios
+            .post(
+                "https://kapi.kakao.com/v2/user/me",
+                {
+                    target_id_type: "user_id",
+                    property_keys: ["kakao_account.profile", "kakao_account.nickname"],
+                },
+                {
+                    headers: {
+                        Authorization: `Bearer ${req.body.token}`,
+                        "Content-type": "application/x-www-form-urlencoded;charset=utf-8",
+                    },
+                }
+            )
+            .then(response => {
+                return res.status(200).json(response.data)
+            })
+    } catch (error) {
+        console.log(error.message)
+        return res.status(500).json("RESPONSE.SERVER_ERROR")
+    }
+})
+
 module.exports = router
