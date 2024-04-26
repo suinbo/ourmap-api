@@ -8,11 +8,11 @@ router.get("/login", async (req, res) => {
         const response = await axios.get("https://kauth.kakao.com/oauth/authorize", {
             params: {
                 client_id: "304c6bc5d7275c6f37ccd6bf08550bb2",
-                redirect_uri: "http://localhost:5173/ourmap.github.io",
+                redirect_uri: "http://localhost:5173",
                 response_type: "code",
             },
         })
-        console.log("req:: ", req)
+        console.log("req:: ", req.body)
         return response
     } catch (error) {
         console.log(error.message)
