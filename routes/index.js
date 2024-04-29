@@ -11,7 +11,7 @@ router.post("/getKakao", async (req, res) => {
                 {
                     grant_type: "authorization_code",
                     client_id: "304c6bc5d7275c6f37ccd6bf08550bb2",
-                    redirect_uri: "http://localhost:5173/ourmap.github.io",
+                    redirect_uri: "http://localhost:5173/ourmap.github.io/",
                     code: req.body.code,
                 },
                 {
